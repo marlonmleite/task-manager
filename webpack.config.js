@@ -27,6 +27,7 @@ module.exports = {
       core: path.resolve(__dirname, './src/core'),
       containers: path.resolve(__dirname, './src/containers'),
       components: path.resolve(__dirname, './src/components'),
+      providers: path.resolve(__dirname, './src/providers'),
     },
     extensions: ['.jsx', '.js'],
   },

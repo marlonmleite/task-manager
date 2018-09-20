@@ -7,7 +7,6 @@ const getConfig = () => ({
   headers: {
     Accept: 'application/json',
     'Accept-Language': 'pt-BR',
-    Authorization: `Bearer any`,
   },
   paramsSerializer(params) {
     return qs.stringify(params, { arrayFormat: 'repeat' })

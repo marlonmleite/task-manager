@@ -7,7 +7,14 @@ import { Container, Content, ContentWrapper, Main as MainStyled } from './styled
 
 const Main = () => (
   <MainStyled>
-    <Header />
+    <Switch>
+      {routes.map(route => (
+        <Header
+          key={route.path}
+          title={route.title}
+        />
+      ))}
+    </Switch>
     <Container>
       <Menu />
       <ContentWrapper>

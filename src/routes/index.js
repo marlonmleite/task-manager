@@ -1,14 +1,7 @@
-import AsyncImport from 'components/AsyncImport'
-
-const Example = AsyncImport({
-  loader: () => import('containers/Example'/* webpackChunkName: 'example' */),
-})
+import task from './task'
 
 const routes = [
-  {
-    path: '/',
-    main: Example,
-  },
+  ...task,
 ]
 
 export default routes

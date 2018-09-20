@@ -25,7 +25,6 @@ export const Nav = styled.ul`
 export const NavItem = styled.li`
   display: flex;
   align-items: center;
-  padding: 0 16px;
   cursor: pointer;
   color: #616162;
 
@@ -51,14 +50,16 @@ export const NavItem = styled.li`
 export const Link = styled(LinkRouter)`
   display: flex;
   align-items: center;
+  flex: 1;
   color: inherit;
   font-size: 14px;
   line-height: 40px;
   text-decoration: none;
+  padding: 0 16px;
 `
 
 export const HomeIcon = styled(Home)`
-  fill: #4fb5cb;
+  fill: #e2ac4a;
   ${icon};
 `
 

@@ -2,10 +2,10 @@
 
 exports[`Header styled should render 1`] = `
 .c0 {
-  background-color: #f5f5f5;
+  background-color: #00b7ce;
   height: 36px;
   padding: 10px;
-  box-shadow: 0px 0px 4px 0px #0006;
+  box-shadow: 0 0px 12px 0px #0006;
 }
 
 <nav
