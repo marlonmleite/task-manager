@@ -18,7 +18,7 @@ export const NavMenu = styled.nav`
 
 export const Nav = styled.ul`
   list-style: none;
-  margin: 24px 8px 12px 8px;
+  margin: 0;
   padding: 0;
 `
 

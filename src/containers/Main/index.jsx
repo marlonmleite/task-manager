@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from 'components/Header'
 import Menu from 'components/Menu'
 import routes from '../../routes'
-import { Container, Content, ContentWrapper, Main as MainStyled } from './styled'
+import { Container, Main as MainStyled, Sidebar } from './styled'
 
 const Main = () => (
   <MainStyled>
@@ -16,21 +16,19 @@ const Main = () => (
       ))}
     </Switch>
     <Container>
-      <Menu />
-      <ContentWrapper>
-        <Content>
-          <Switch>
-            {routes.map(route => (
-              <Route
-                key={route.path}
-                path={route.path}
-                exact={route.exact}
-                component={route.main}
-              />
+      <Sidebar>
+        <Menu />
+      </Sidebar>
+      <Switch>
+        {routes.map(route => (
+          <Route
+            key={route.path}
+            path={route.path}
+            exact={route.exact}
+            component={route.main}
+          />
           ))}
-          </Switch>
-        </Content>
-      </ContentWrapper>
+      </Switch>
     </Container>
   </MainStyled>
 )

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid as GridStyled, GridItem } from './styled'
+import { Grid as GridStyled, GridItem, Remove, Finish } from './styled'
 
 class Grid extends Component {
 
@@ -13,7 +13,13 @@ class Grid extends Component {
           const key = `grid-${index}`
 
           return (
-            <GridItem key={key}>{render(item, index)}</GridItem>
+            <GridItem key={key}>
+              {render(item, index)}
+              <div className="grid-actions">
+                <Remove />
+                <Finish />
+              </div>
+            </GridItem>
           )
         })}
       </GridStyled>
