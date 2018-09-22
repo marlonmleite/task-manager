@@ -2,11 +2,11 @@ import { put, call, takeLatest } from 'redux-saga/effects'
 import Task from 'providers/task'
 import { actions, types } from './actions'
 
-export function* loadTasks() {
+export function* loadTasks({ params }) {
   yield put(actions.setLoading('tasks'))
 
   try {
-    const tasks = yield call([Task, Task.all])
+    const tasks = yield call([Task, Task.all], params)
 
     yield put(actions.setTasks(tasks))
   } catch (errors) {

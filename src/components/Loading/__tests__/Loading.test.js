@@ -1,18 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Loading from '../'
-import LoadingStyled from '../styled'
+import { Loading } from '../styled'
+import theme from 'core/constants/theme'
 
 describe('Loading', () => {
   it('should render', () => {
-    const component = shallow(<Loading />)
+    const loading = shallow(<Loading theme={theme} />)
 
-    expect(component).toMatchSnapshot()
-  })
-
-  it('should color black', () => {
-    const component = shallow(<LoadingStyled color="black" />)
-
-    expect(component).toHaveStyleRule('color', 'black')
+    expect(loading).toMatchSnapshot()
   })
 })

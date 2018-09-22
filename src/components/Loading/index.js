@@ -1,15 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import LoadingStyled from './styled'
+import { Loading } from './styled'
+import LoadingFullscreen from './LoadingFullscreen'
+import LoadingContent from './LoadingContent'
 
-const Loading = ({ color }) => <LoadingStyled color={color}>Loading...</LoadingStyled>
-
-Loading.defaultProps = {
-  color: 'black',
+export {
+  Loading,
+  LoadingFullscreen,
+  LoadingContent,
 }
-
-Loading.propTypes = {
-  color: PropTypes.string,
-}
-
-export default Loading

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const PageTop = styled.div`
   width: 100%;
@@ -59,6 +59,11 @@ export const ColumnDescription = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  ${({ completed }) => completed && css`
+    color: #bbb;
+    text-decoration: line-through;
+  `}
 `
 
 export const ColumnSchedule = styled.div`
@@ -75,4 +80,9 @@ export const ColumnSchedule = styled.div`
     fill: currentColor;
     margin-right: 5px;
   }
+
+  ${({ completed }) => completed && css`
+    color: #bbb;
+    text-decoration: line-through;
+  `}
 `

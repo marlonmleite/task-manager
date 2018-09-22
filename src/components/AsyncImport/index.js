@@ -1,9 +1,9 @@
 import Loadable from 'react-loadable'
-import Loading from '../Loading'
+import { LoadingContent } from '../Loading'
 
 const AsyncImport = config => Loadable({
   ...config,
-  loading: Loading,
+  loading: LoadingContent,
 })
 
 export default AsyncImport

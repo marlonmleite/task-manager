@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import map from 'lodash/map'
 import { Grid as GridStyled, GridItem, Remove, Finish } from './styled'
 
 class Grid extends Component {
@@ -9,7 +10,7 @@ class Grid extends Component {
 
     return (
       <GridStyled>
-        {items.map((item, index) => {
+        {map(items, (item, index) => {
           const key = `grid-${index}`
 
           return (
