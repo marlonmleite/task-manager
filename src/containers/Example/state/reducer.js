@@ -1,4 +1,4 @@
-import createReducer from 'core/utils/redux'
+import { createReducer } from 'core/utils/redux'
 import { Types } from './actions'
 
 export const initState = {

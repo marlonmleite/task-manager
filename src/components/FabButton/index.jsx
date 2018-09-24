@@ -6,7 +6,7 @@ class FabButton extends Component {
 
   render() {
     return (
-      <FabButtonStyled>
+      <FabButtonStyled {...this.props} color="primary">
         <PlusIcon fill="#fff" />
       </FabButtonStyled>
     )

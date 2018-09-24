@@ -10,6 +10,8 @@ module.exports = {
 
   mode: 'development',
 
+  devtool: 'cheap-module-source-map',
+
   entry: {
     regenerator: 'regenerator-runtime/runtime',
     main: './src/index.js',
@@ -54,6 +56,10 @@ module.exports = {
         use: {
           loader: 'babel-loader?cacheDirectory',
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

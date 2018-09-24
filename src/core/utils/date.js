@@ -5,8 +5,6 @@ moment.locale('pt-BR')
 
 export const getNow = () => moment()
 
-// export const formatDate = (date, format) => {
-//   return moment(date).format(format)
-// }
+export const convertISOToDate = date => date ? moment(date, moment.ISO_8601) : null
 
-export const convertUnixDate = date => moment.unix(date)
+export const convertDateToISO = date => date ? date.toISOString() : null

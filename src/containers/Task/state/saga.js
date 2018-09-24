@@ -1,16 +1,75 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import Task from 'providers/task'
+import { showSuccess, showError } from 'core/utils/toast'
 import { actions, types } from './actions'
 
+const msgError = 'Ocorreu um erro ao processar sua solicitação.'
+const getPagination = (tasks, page) => {
+  const hasMore = tasks.length >= Task.getPageLimit()
+  const pagination = {
+    page,
+    hasMore,
+  }
+
+  return pagination
+}
+
 export function* loadTasks({ params }) {
-  yield put(actions.setLoading('tasks'))
+  const isFetchMore = params.page > 1
+  const loadingType = isFetchMore ? 'pagination' : 'tasks'
+
+  yield put(actions.setLoading(loadingType))
 
   try {
     const tasks = yield call([Task, Task.all], params)
 
-    yield put(actions.setTasks(tasks))
+
+    if (isFetchMore) {
+      yield put(actions.updateTasks(tasks))
+
+      const pagination = yield getPagination(tasks, params.page)
+
+      yield put(actions.setPagination(pagination))
+    } else {
+      yield put(actions.setTasks(tasks))
+    }
   } catch (errors) {
-    // TODO: call toaster to error
+    yield showError(msgError)
+  } finally {
+    yield put(actions.setLoading(null))
+  }
+}
+
+export function* removeTask({ id }) {
+  yield put(actions.setLoading(`${id}`))
+
+  try {
+    yield call([Task, Task.delete], id)
+
+    yield put(actions.deleteTask(id))
+
+    yield showSuccess('A sua task foi removida.')
+  } catch (errors) {
+    yield showError(msgError)
+  } finally {
+    yield put(actions.setLoading(null))
+  }
+}
+
+export function* saveTask({ task }) {
+  const msg = `A sua task foi ${task.id ? 'atualizada' : 'criada'}.`
+  yield put(actions.setLoading('save'))
+
+  try {
+    const saved = yield call([Task, Task.save], task)
+
+    yield put(actions.upsertTask(saved))
+
+    yield put(actions.setModalItem(saved))
+
+    yield showSuccess(msg)
+  } catch (errors) {
+    yield showError(msgError)
   } finally {
     yield put(actions.setLoading(null))
   }
@@ -18,4 +77,6 @@ export function* loadTasks({ params }) {
 
 export default function* root() {
   yield takeLatest(types.LOAD_TASKS, loadTasks)
+  yield takeLatest(types.REMOVE_TASK, removeTask)
+  yield takeLatest(types.SAVE_TASK, saveTask)
 }

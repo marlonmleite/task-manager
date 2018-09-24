@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components'
+import PropTypes from 'prop-types'
+import styled, { css, keyframes } from 'styled-components'
 
 const spin = keyframes`
   from {
@@ -12,17 +13,20 @@ const spin = keyframes`
 `
 
 export const Loading = styled.div`
-  width: 75px;
-  height: 75px;
   border-radius: 50%;
   background-color: transparent;
   border: 2px solid #d5d5d5;
-  border-top: 2px solid ${({ theme }) => theme.colors.primary};
+  border-top: 2px solid ${({ theme, color }) => theme.colors[color]};
   animation: ${spin} 1s linear infinite;
+
+  ${({ size }) => css`
+    width: ${size};
+    height: ${size};
+  `};
 `
 
-export const LoadingFullscreen = styled.div`
-  background-color: rgba(255, 255, 255, 0.6);
+export const LoadingFullscreenStyled = styled.div`
+  background-color: ${({ background }) => background};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -41,3 +45,12 @@ export const LoadingContent = styled.div`
   align-items: center;
   justify-content: center;
 `
+
+LoadingFullscreenStyled.defaultProps = {
+  background: 'rgba(255, 255, 255, 0.6)',
+}
+
+Loading.defaultProps = {
+  size: '75px',
+  color: 'primary',
+}

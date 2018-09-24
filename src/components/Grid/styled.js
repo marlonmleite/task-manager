@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import RemoveIcon from 'core/assets/svg/delete.svg'
 import FinishIcon from 'core/assets/svg/finish.svg'
+import EditIcon from 'core/assets/svg/edit.svg'
 
 const addDecorateIcon = Icon => styled(Icon)`
   fill: #777;
@@ -28,6 +29,7 @@ export const GridItem = styled.div`
   padding: 6px 12px;
   border-bottom: 1px solid #e0e0e0;
   font-size: 14px;
+  position: relative;
 
   .grid-actions {
     display: flex;
@@ -43,3 +45,4 @@ export const GridItem = styled.div`
 
 export const Remove = addDecorateIcon(RemoveIcon)
 export const Finish = addDecorateIcon(FinishIcon)
+export const Edit = addDecorateIcon(EditIcon)

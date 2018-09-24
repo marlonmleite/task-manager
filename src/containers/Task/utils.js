@@ -1,6 +1,6 @@
 import groupBy from 'lodash/groupBy'
 import map from 'lodash/map'
-import { convertUnixDate } from 'core/utils/date'
+import { convertISOToDate } from 'core/utils/date'
 
 export const VIEW_TYPE = {
   DAY: 'DAY',
@@ -14,12 +14,12 @@ const viewFormats = {
 }
 
 const getTasksByDateFormat = (tasks, format) => {
-  return groupBy(tasks, task => convertUnixDate(task.scheduleDate).format(format))
+  return groupBy(tasks, task => convertISOToDate(task.scheduleDate).format(format))
 }
 
 const getTasksByWeek = (tasks) => {
   return groupBy(tasks, (task) => {
-    const current = convertUnixDate(task.scheduleDate)
+    const current = convertISOToDate(task.scheduleDate)
     const startWeek = current.startOf('week').format('L')
     const endWeek = current.endOf('week').format('L')
 
@@ -28,8 +28,6 @@ const getTasksByWeek = (tasks) => {
 }
 
 export const getTasks = ({ tasks, viewType }) => {
-  console.log(getTasksByDateFormat(tasks, 'L'))
-
   if (viewType === VIEW_TYPE.WEEK) {
     return getTasksByWeek(tasks)
   }

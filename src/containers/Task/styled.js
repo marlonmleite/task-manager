@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Button from 'components/Button'
 
 export const PageTop = styled.div`
   width: 100%;
@@ -10,8 +11,10 @@ export const PageTop = styled.div`
 
 export const Title = styled.h5`
   color: #616161;
+  text-transform: uppercase;
   margin: 0;
   padding: 0 15px;
+  width: 100%;
 `
 
 export const Filter = styled.div`
@@ -28,7 +31,7 @@ export const FilterItem = styled.div`
   }
 `
 
-export const Row = styled.div`
+export const GridRow = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -85,4 +88,20 @@ export const ColumnSchedule = styled.div`
     color: #bbb;
     text-decoration: line-through;
   `}
+`
+
+export const GroupFields = styled.div`
+  display: flex;
+  
+  > div {
+    margin: 0 15px;
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
 `

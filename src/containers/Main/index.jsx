@@ -1,9 +1,11 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import Header from 'components/Header'
 import Menu from 'components/Menu'
 import routes from '../../routes'
 import { Container, Main as MainStyled, Sidebar } from './styled'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Main = () => (
   <MainStyled>
@@ -27,9 +29,10 @@ const Main = () => (
             exact={route.exact}
             component={route.main}
           />
-          ))}
+        ))}
       </Switch>
     </Container>
+    <ToastContainer />
   </MainStyled>
 )
 

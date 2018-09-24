@@ -2,81 +2,97 @@ import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import map from 'lodash/map'
-import { convertUnixDate } from 'core/utils/date'
+import { convertISOToDate } from 'core/utils/date'
 import Grid from 'components/Grid'
 import { Page, PageContent } from 'components/Page'
-import { Dropdown, DropdownOption } from 'components/Dropdown'
-import { LoadingContent } from 'components/Loading'
+import { LoadingContent, LoadingRow } from 'components/Loading'
 import FabButton from 'components/FabButton'
+import { DeleteModal } from 'components/Modal'
+import { Row } from 'components/Layout'
+import Pagination from 'components/Pagination'
 import CalendarIcon from 'core/assets/svg/calendar.svg'
 import ClockIcon from 'core/assets/svg/clock.svg'
 import { actions } from './state/actions'
-import { VIEW_TYPE, getTasks } from './utils'
-import { PageTop, Title, Filter, FilterItem, Row, ColumnDate, ColumnDescription, ColumnSchedule } from './styled'
+import { getTasks } from './utils'
+import { PageTop, Title, GridRow, ColumnDate, ColumnDescription, ColumnSchedule } from './styled'
+import TaskFilter from './TaskFilter'
+import FormTask from './FormTask'
 
-const VIEW_LABEL = {
-  DAY: 'Dia',
-  WEEK: 'Semana',
-  MOUNTH: 'Mês',
-}
-
-const FilterTasks = {
-  Todas: null,
-  Realizadas: true,
-  Pendentes: false,
-}
+const MODAL_DELETE = 'delete'
+const MODAL_FORM = 'crud'
 
 class Task extends Component {
-
-  state = {
-    filterTask: null,
-  }
 
   componentDidMount() {
     this.loadTasks()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { filterTask } = this.state
+  componentDidUpdate(prevProps) {
+    const { completed } = this.props
 
-    if (prevState.filterTask !== filterTask) {
+    if (prevProps.completed !== completed) {
       this.loadTasks()
     }
   }
 
-  loadTasks() {
-    const { loadTasks } = this.props
-    const { filterTask } = this.state
-    const params = { search: filterTask }
+  loadTasks = (page = 1) => {
+    const { loadTasks, completed } = this.props
+    const params = { search: completed, page }
 
     loadTasks(params)
   }
 
-  changeFilterTask = filterTask => this.setState({ filterTask })
+  deleteTask = ({ id }) => {
+    const { removeTask } = this.props
+
+    removeTask(id)
+  }
+
+  completeTask = (task) => {
+    console.log('complete', task)
+  }
+
+  confirmDelete = (task) => {
+    const { openModal } = this.props
+
+    openModal(MODAL_DELETE, task)
+  }
+
+  openCrudModal = (task) => {
+    const { openModal } = this.props
+
+    openModal(MODAL_FORM, task)
+  }
+
+  closeModal = () => this.props.openModal(null)
 
   renderItem = (task) => {
-    const date = convertUnixDate(task.scheduleDate)
+    const { loading } = this.props
+    const date = convertISOToDate(task.scheduleDate)
+    const isLoading = loading === `${task.id}`
 
     return (
-      <Row>
-        <ColumnDate>
-          <b>{date.format('DD')}</b>
-          <span>{date.format('MMM')}</span>
-        </ColumnDate>
-        <ColumnDescription completed={task.completed}>
-          {task.description}
-        </ColumnDescription>
-        <ColumnSchedule completed={task.completed}>
-          <span><CalendarIcon width={16} height={16} /> {date.format('L')}</span>
-          <span><ClockIcon width={16} height={16} /> {date.format('HH:mm')}</span>
-        </ColumnSchedule>
-      </Row>
+      <Fragment>
+        <GridRow>
+          <ColumnDate>
+            <b>{date.format('DD')}</b>
+            <span>{date.format('MMM')}</span>
+          </ColumnDate>
+          <ColumnDescription completed={task.completed}>
+            {task.description}
+          </ColumnDescription>
+          <ColumnSchedule completed={task.completed}>
+            <span><CalendarIcon width={16} height={16} /> {date.format('L')}</span>
+            <span><ClockIcon width={16} height={16} /> {date.format('HH:mm')}</span>
+          </ColumnSchedule>
+        </GridRow>
+        {isLoading && <LoadingRow />}
+      </Fragment>
     )
   }
 
   renderPage = (tasks, title) => {
-    const { viewType, changeViewType, tasksGrouped } = this.props
-    const { filterTask } = this.state
+    const { tasksGrouped } = this.props
     const isFirst = Object.keys(tasksGrouped).indexOf(title) === 0
 
     return (
@@ -85,57 +101,52 @@ class Task extends Component {
           <Title>
             {title}
           </Title>
-          {isFirst && (
-            <Filter>
-              <FilterItem>
-                <Dropdown color="secondary" text={VIEW_LABEL[viewType]} right>
-                  {map(VIEW_TYPE, (value, key) => (
-                    <DropdownOption
-                      selected={viewType === value}
-                      onClick={() => this.changeViewType(value)}
-                      key={key}
-                    >
-                      {VIEW_LABEL[value]}
-                    </DropdownOption>
-                  ))}
-                </Dropdown>
-              </FilterItem>
-              <FilterItem>
-                <Dropdown color="secondary" text="Tarefas" right>
-                  {map(FilterTasks, (value, key) => (
-                    <DropdownOption
-                      selected={filterTask === value}
-                      onClick={() => this.changeFilterTask(value)}
-                      key={key}
-                    >
-                      {key}
-                    </DropdownOption>
-                  ))}
-                </Dropdown>
-              </FilterItem>
-            </Filter>
-          )}
+          {isFirst && <TaskFilter />}
         </PageTop>
         <PageContent>
           <Grid
             items={tasks}
             render={this.renderItem}
+            onRemove={this.confirmDelete}
+            onFinish={this.completeTask}
+            onEdit={this.openCrudModal}
           />
         </PageContent>
-        <FabButton color="info" />
+        <FabButton color="info" onClick={() => this.openCrudModal()} />
       </Fragment>
     )
   }
 
   render() {
-    const { tasksGrouped, loading } = this.props
+    const { tasksGrouped, loading, modalOpen, modalItem, pagination } = this.props
     const loadingTasks = loading === 'tasks'
+    const loadingPagination = loading === 'pagination'
+    const modalDeleteOpen = modalOpen === MODAL_DELETE
+    const modalFormOpen = modalOpen === MODAL_FORM
 
     return (
-      <Page>
-        {loadingTasks && <LoadingContent />}
-        {!loadingTasks && map(tasksGrouped, this.renderPage)}
-      </Page>
+      <Fragment>
+        <Page>
+          {loadingTasks && <LoadingContent />}
+          {!loadingTasks && map(tasksGrouped, this.renderPage)}
+          {!loadingTasks && (
+            <Pagination
+              page={pagination.page}
+              hasMore={pagination.hasMore}
+              onChange={this.loadTasks}
+              loading={loadingPagination}
+            />
+          )}
+        </Page>
+        {modalDeleteOpen && (
+          <DeleteModal
+            item={modalItem}
+            onConfirm={this.deleteTask}
+            onClose={this.closeModal}
+          />
+        )}
+        {modalFormOpen && <FormTask onClose={this.closeModal} />}
+      </Fragment>
     )
   }
 
@@ -143,24 +154,39 @@ class Task extends Component {
 
 Task.defaultProps = {
   loading: null,
+  completed: null,
+  modalOpen: null,
+  modalItem: null,
 }
 
 Task.propTypes = {
   tasksGrouped: PropTypes.object.isRequired,
   loadTasks: PropTypes.func.isRequired,
-  viewType: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
+  removeTask: PropTypes.func.isRequired,
   loading: PropTypes.string,
+  completed: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
+  modalOpen: PropTypes.string,
+  modalItem: PropTypes.object,
+  pagination: PropTypes.object.isRequired,
 }
 
 const mapProps = ({ task }) => ({
   tasksGrouped: getTasks(task),
   loading: task.loading,
-  viewType: task.viewType,
+  completed: task.completed,
+  modalOpen: task.modal.open,
+  modalItem: task.modal.item,
+  pagination: task.pagination,
 })
 
 const mapActions = {
   loadTasks: actions.loadTasks,
-  changeViewType: actions.setViewType,
+  openModal: actions.openModal,
+  removeTask: actions.removeTask,
 }
 
 export default connect(mapProps, mapActions)(Task)

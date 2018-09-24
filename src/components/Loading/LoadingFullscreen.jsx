@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loading, LoadingFullscreen as LoadingFullscreenStyled } from './styled'
+import { Loading, LoadingFullscreenStyled } from './styled'
 
 const LoadingFullscreen = () => (
   <LoadingFullscreenStyled>
