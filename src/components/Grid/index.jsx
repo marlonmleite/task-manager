@@ -18,7 +18,7 @@ class Grid extends Component {
               {render(item, index)}
               <div className="grid-actions">
                 <Edit role="button" onClick={() => onEdit(item)} />
-                <Finish role="button" onClick={() => onFinish(item)} />
+                {!item.completed && <Finish role="button" onClick={() => onFinish(item)} />}
                 <Remove role="button" onClick={() => onRemove(item)} />
               </div>
             </GridItem>

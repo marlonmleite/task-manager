@@ -25,7 +25,7 @@ export const actions = {
   setModalItem: item => ({ type: types.SET_MODAL_ITEM, item }),
   deleteTask: id => ({ type: types.DELETE_TASK, id }),
   removeTask: id => ({ type: types.REMOVE_TASK, id }),
-  saveTask: task => ({ type: types.SAVE_TASK, task }),
+  saveTask: (task, loading) => ({ type: types.SAVE_TASK, task, loading }),
   upsertTask: task => ({ type: types.UPSERT_TASK, task }),
   setPagination: pagination => ({ type: types.SET_PAGINATION, pagination }),
 }

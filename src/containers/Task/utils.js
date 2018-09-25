@@ -1,6 +1,6 @@
 import groupBy from 'lodash/groupBy'
-import map from 'lodash/map'
-import { convertISOToDate } from 'core/utils/date'
+import * as Yup from 'yup'
+import { convertISOToDate, getNowISO } from 'core/utils/date'
 
 export const VIEW_TYPE = {
   DAY: 'DAY',
@@ -34,3 +34,24 @@ export const getTasks = ({ tasks, viewType }) => {
 
   return getTasksByDateFormat(tasks, viewFormats[viewType])
 }
+
+export const crudSchema = Yup.object().shape({
+  description: Yup.string()
+    .required('Campo obrigatório'),
+  duration: Yup.number()
+    .positive('A duração não pode ser negativa')
+    .required('Campo obrigatório'),
+  durationUnit: Yup.string()
+    .required('Campo obrigatório'),
+  reminder: Yup.number()
+    .positive('O lembrete não pode ser negativo')
+    .required('Campo obrigatório'),
+  reminderUnit: Yup.string()
+    .required('Campo obrigatório'),
+  scheduleDate: Yup.string()
+    .required('Campo obrigatório'),
+  tags: Yup.array()
+    .of(Yup.object())
+    .required('Campo obrigatório'),
+  createdAt: Yup.string().default(getNowISO),
+})

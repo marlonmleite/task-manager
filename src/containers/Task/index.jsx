@@ -49,7 +49,10 @@ class Task extends Component {
   }
 
   completeTask = (task) => {
-    console.log('complete', task)
+    const { saveTask } = this.props
+    const newTask = { ...task, completed: true }
+
+    saveTask(newTask, `${task.id}`)
   }
 
   confirmDelete = (task) => {
@@ -172,6 +175,7 @@ Task.propTypes = {
   modalOpen: PropTypes.string,
   modalItem: PropTypes.object,
   pagination: PropTypes.object.isRequired,
+  saveTask: PropTypes.func.isRequired,
 }
 
 const mapProps = ({ task }) => ({
@@ -187,6 +191,7 @@ const mapActions = {
   loadTasks: actions.loadTasks,
   openModal: actions.openModal,
   removeTask: actions.removeTask,
+  saveTask: actions.saveTask,
 }
 
 export default connect(mapProps, mapActions)(Task)

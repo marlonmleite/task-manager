@@ -56,9 +56,9 @@ export function* removeTask({ id }) {
   }
 }
 
-export function* saveTask({ task }) {
+export function* saveTask({ task, loading = 'save' }) {
   const msg = `A sua task foi ${task.id ? 'atualizada' : 'criada'}.`
-  yield put(actions.setLoading('save'))
+  yield put(actions.setLoading(loading))
 
   try {
     const saved = yield call([Task, Task.save], task)

@@ -11,6 +11,7 @@ import { Col, Row } from 'components/Layout'
 import { Multiselect } from 'components/Form/Multiselect'
 import { actions } from './state/actions'
 import { GroupFields } from './styled'
+import { crudSchema } from './utils'
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -27,8 +28,9 @@ class FormTask extends Component {
       durationUnit: 'MINUTE',
       reminder: '',
       reminderUnit: 'MINUTE',
-      scheduleDate: null,
+      scheduleDate: '',
       tags: [{ value: 'chocolate', label: 'Chocolate' }],
+      createdAt: null,
     },
     loading: null,
   }
@@ -49,6 +51,7 @@ class FormTask extends Component {
         <Formik
           enableReinitialize
           initialValues={activeTask}
+          validationSchema={crudSchema}
           onSubmit={(values, formActions) => {
             formActions.setSubmitting(false)
 
