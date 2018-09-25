@@ -12,6 +12,7 @@ import Pagination from 'components/Pagination'
 import CalendarIcon from 'core/assets/svg/calendar.svg'
 import ClockIcon from 'core/assets/svg/clock.svg'
 import { actions } from './state/actions'
+import { actions as tagActions } from '../Tag/state/actions'
 import { getTasks } from './utils'
 import { PageTop, Title, GridRow, ColumnDate, ColumnDescription, ColumnSchedule } from './styled'
 import TaskFilter from './TaskFilter'
@@ -23,7 +24,10 @@ const MODAL_FORM = 'crud'
 class Task extends Component {
 
   componentDidMount() {
+    const { loadTags } = this.props
+
     this.loadTasks()
+    loadTags()
   }
 
   componentDidUpdate(prevProps) {
@@ -175,6 +179,7 @@ Task.propTypes = {
   modalItem: PropTypes.object,
   pagination: PropTypes.object.isRequired,
   saveTask: PropTypes.func.isRequired,
+  loadTags: PropTypes.func.isRequired,
 }
 
 const mapProps = ({ task }) => ({
@@ -191,6 +196,7 @@ const mapActions = {
   openModal: actions.openModal,
   removeTask: actions.removeTask,
   saveTask: actions.saveTask,
+  loadTags: tagActions.loadTags,
 }
 
 export default connect(mapProps, mapActions)(Task)

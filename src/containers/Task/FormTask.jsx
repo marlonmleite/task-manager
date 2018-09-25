@@ -13,12 +13,6 @@ import { actions } from './state/actions'
 import { GroupFields } from './styled'
 import { crudSchema } from './utils'
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-]
-
 class FormTask extends Component {
 
   static defaultProps = {
@@ -29,7 +23,7 @@ class FormTask extends Component {
       reminder: '',
       reminderUnit: 'MINUTE',
       scheduleDate: '',
-      tags: [{ value: 'chocolate', label: 'Chocolate' }],
+      tags: [],
       createdAt: null,
     },
     loading: null,
@@ -40,10 +34,11 @@ class FormTask extends Component {
     onClose: PropTypes.func.isRequired,
     saveTask: PropTypes.func.isRequired,
     loading: PropTypes.string,
+    tags: PropTypes.array.isRequired,
   }
 
   render() {
-    const { activeTask, onClose, saveTask, loading } = this.props
+    const { activeTask, onClose, saveTask, loading, tags } = this.props
     const isLoading = loading === 'save'
 
     return (
@@ -96,8 +91,10 @@ class FormTask extends Component {
                         name="tags"
                         placeholder="Selecione"
                         menuPlacement="top"
-                        options={options}
+                        options={tags}
                         onChange={value => setFieldValue('tags', value)}
+                        getOptionValue={item => item.id}
+                        getOptionLabel={item => item.name}
                       />
                     </Col>
                   </Row>
@@ -115,9 +112,10 @@ class FormTask extends Component {
 
 }
 
-const mapProps = ({ task }) => ({
+const mapProps = ({ task, tag }) => ({
   activeTask: task.modal.item,
   loading: task.loading,
+  tags: tag.tags,
 })
 
 const mapActions = {

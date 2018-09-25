@@ -1,3 +1,4 @@
+import get from 'lodash/get'
 import { put, call, takeLatest } from 'redux-saga/effects'
 import Tag from 'providers/tag'
 import { showSuccess, showError } from 'core/utils/toast'
@@ -15,8 +16,8 @@ const getPagination = (tags, page) => {
   return pagination
 }
 
-export function* loadTags({ params }) {
-  const isFetchMore = params.page > 1
+export function* loadTags({ params = {} }) {
+  const isFetchMore = get(params, 'page', 1) > 1
   const loadingType = isFetchMore ? 'pagination' : 'tags'
 
   yield put(actions.setLoading(loadingType))

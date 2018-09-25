@@ -4,7 +4,7 @@ const path = '/tag'
 
 const Tag = {
   all(filters) {
-    const params = { ...filters, sortBy: 'id', order: 'asc', limit: Tag.getPageLimit() }
+    const params = { ...filters, sortBy: 'name', order: 'asc', limit: Tag.getPageLimit() }
 
     return Api.request(path, { params })
   },

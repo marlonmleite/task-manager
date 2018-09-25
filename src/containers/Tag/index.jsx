@@ -65,8 +65,30 @@ class Tag extends Component {
     )
   }
 
+  renderContent() {
+    const { tags } = this.props
+
+    return (
+      <Fragment>
+        <PageTop>
+          <Title>
+              Lista de Tags
+          </Title>
+        </PageTop>
+        <PageContent>
+          <Grid
+            items={tags}
+            render={this.renderItem}
+            onRemove={this.confirmDelete}
+            onEdit={this.openCrudModal}
+          />
+        </PageContent>
+      </Fragment>
+    )
+  }
+
   render() {
-    const { tags, loading, pagination, modalOpen, modalItem } = this.props
+    const { loading, pagination, modalOpen, modalItem } = this.props
     const loadingTags = loading === 'tags'
     const loadingPagination = loading === 'pagination'
     const modalDeleteOpen = modalOpen === MODAL_DELETE
@@ -75,19 +97,7 @@ class Tag extends Component {
     return (
       <Fragment>
         <Page>
-          <PageTop>
-            <Title>
-              Lista de Tags
-            </Title>
-          </PageTop>
-          <PageContent>
-            <Grid
-              items={tags}
-              render={this.renderItem}
-              onRemove={this.confirmDelete}
-              onEdit={this.openCrudModal}
-            />
-          </PageContent>
+          {!loadingTags && this.renderContent()}
           <FabButton color="info" onClick={() => this.openCrudModal()} />
           {loadingTags && <LoadingContent />}
           {!loadingTags && (
