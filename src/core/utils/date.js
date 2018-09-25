@@ -1,12 +1,22 @@
 import moment from 'moment'
 import 'moment/locale/pt-br'
 
-moment.locale('pt-BR')
-
-export const getNow = () => moment()
+moment.updateLocale('pt-BR')
 
 export const getNowISO = () => moment().toISOString()
 
-export const convertISOToDate = date => date ? moment(date, moment.ISO_8601) : null
+export const convertISOToDate = (iso) => {
+  const date = iso ? moment(iso, moment.ISO_8601) : null
 
-export const convertDateToISO = date => date ? date.toISOString() : null
+  if (date.isValid()) {
+    return date
+  }
+
+  return null
+}
+
+export const convertDateToISO = (date) => {
+  const isValid = date && date instanceof moment && date.isValid()
+
+  return isValid ? date.toISOString() : null
+}
