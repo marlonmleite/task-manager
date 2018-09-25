@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGroup should render 1`] = `
+<styled.div
+  invalid={false}
+>
+  a
+  <label
+    htmlFor="abc"
+  >
+    Abc
+  </label>
+</styled.div>
+`;

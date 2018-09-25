@@ -2,6 +2,7 @@
 
 exports[`Header should render 1`] = `
 <styled.nav>
-  <[object Object] />
+  <jest-stub />
+  <styled.h1 />
 </styled.nav>
 `;

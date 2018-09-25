@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingFullscreen should render 1`] = `
+<styled.div
+  background="rgba(255, 255, 255, 0.6)"
+>
+  <styled.div
+    color="primary"
+    size="75px"
+  />
+</styled.div>
+`;

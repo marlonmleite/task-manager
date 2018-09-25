@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownStyled should dropdown option is selected 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+  padding: 0 1.25rem 0 1.5rem;
+  box-sizing: border-box;
+  color: #222;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+}
+
+.c0:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.c0:before {
+  content: '';
+  border-left: 2px solid #666;
+  border-bottom: 2px solid #666;
+  width: 10px;
+  height: 6px;
+  margin-top: -7px;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+<div
+  className="c0"
+  selected={true}
+/>
+`;
+
+exports[`DropdownStyled should render caret 1`] = `
+.c0 {
+  margin-left: 10px;
+  width: 0px;
+  height: 0px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DropdownStyled should render dropdown 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c0 > button {
+  width: 100%;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DropdownStyled should render dropdown button 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0 > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DropdownStyled should render dropdown menu 1`] = `
+.c0 {
+  position: absolute;
+  min-width: 200px;
+  color: #89898a;
+  background-color: #fff;
+  border-radius: 2px;
+  margin-top: 2px;
+  padding: 3px 5px;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DropdownStyled should render dropdown option 1`] = `
+.c0 {
+  width: 100%;
+  position: relative;
+  padding: 0 1.25rem 0 1.5rem;
+  box-sizing: border-box;
+  color: #222;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+}
+
+.c0:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+<div
+  className="c0"
+/>
+`;

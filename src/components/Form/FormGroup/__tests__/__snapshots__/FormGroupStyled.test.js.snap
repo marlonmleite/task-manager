@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGroupStyled should render 1`] = `
+.c0 {
+  width: 100%;
+  font-size: 15px;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #666;
+  padding: 25px 0 10px 0;
+}
+
+.c0 label {
+  position: absolute;
+  display: block;
+  top: calc(25px + 5px);
+  left: 0px;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+  pointer-events: none;
+  cursor: text;
+}
+
+.c0 input:focus ~ label,
+.c0 input:not([value=""]) ~ label {
+  top: calc(25px - (5px + 10px));
+  font-size: 12px;
+}
+
+.c0 select:focus ~ label,
+.c0 div:focus ~ label,
+.c0 select:not(.empty) ~ label,
+.c0 div:not(.empty) ~ label {
+  top: calc(25px - (5px + 10px));
+  font-size: 12px;
+}
+
+.c0 input:focus ~ label,
+.c0 select:focus ~ label {
+  color: #62C2FA;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`FormGroupStyled should render invalid 1`] = `
+.c0 {
+  width: 100%;
+  font-size: 15px;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #666;
+  padding: 25px 0 10px 0;
+}
+
+.c0 label {
+  position: absolute;
+  display: block;
+  top: calc(25px + 5px);
+  left: 0px;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+  pointer-events: none;
+  cursor: text;
+}
+
+.c0 input:focus ~ label,
+.c0 input:not([value=""]) ~ label {
+  top: calc(25px - (5px + 10px));
+  font-size: 12px;
+}
+
+.c0 select:focus ~ label,
+.c0 div:focus ~ label,
+.c0 select:not(.empty) ~ label,
+.c0 div:not(.empty) ~ label {
+  top: calc(25px - (5px + 10px));
+  font-size: 12px;
+}
+
+.c0 input:focus ~ label,
+.c0 select:focus ~ label {
+  color: #62C2FA;
+}
+
+.c0 input,
+.c0 select,
+.c0 input:focus,
+.c0 select:focus {
+  border-color: #f46363;
+}
+
+.c0 input:focus ~ label,
+.c0 select:focus ~ label {
+  color: inherit;
+}
+
+<div
+  className="c0"
+/>
+`;

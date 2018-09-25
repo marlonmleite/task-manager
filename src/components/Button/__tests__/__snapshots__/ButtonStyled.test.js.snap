@@ -2,8 +2,9 @@
 
 exports[`ButtonStyled should render 1`] = `
 .c0 {
-  padding: 0.5rem 1rem;
-  color: #fff;
+  padding: 0.4375rem 0.75rem;
+  line-height: 1.25rem;
+  font-size: 0.875rem;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -14,6 +15,7 @@ exports[`ButtonStyled should render 1`] = `
   user-select: none;
   border: 1px solid;
   border-radius: 2px;
+  position: relative;
 }
 
 .c0:focus,
@@ -27,7 +29,7 @@ exports[`ButtonStyled should render 1`] = `
   outline: none;
 }
 
-.c0.disabled,
+.c0 .disabled,
 .c0:disabled {
   opacity: .65;
   box-shadow: none;
@@ -42,4 +44,19 @@ exports[`ButtonStyled should render 1`] = `
 >
   Ok
 </button>
+`;
+
+exports[`LoadingContainer should render 1`] = `
+.c0 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+<div
+  className="c0"
+/>
 `;

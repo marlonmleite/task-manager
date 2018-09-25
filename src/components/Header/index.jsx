@@ -5,6 +5,10 @@ import { Header as HeaderStyled, Title } from './styled'
 
 class Header extends PureComponent {
 
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+  }
+
   render() {
     const { title } = this.props
 
@@ -16,10 +20,6 @@ class Header extends PureComponent {
     )
   }
 
-}
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired,
 }
 
 export default Header

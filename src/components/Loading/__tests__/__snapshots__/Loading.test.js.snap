@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should render 1`] = `
+.c0 {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #d5d5d5;
+  border-top: 2px solid #00b7ce;
+  -webkit-animation: iptmSo 1s linear infinite;
+  animation: iptmSo 1s linear infinite;
+  width: 75px;
+  height: 75px;
+}
+
+<div
+  className="c0"
+  color="primary"
+  size="75px"
+/>
+`;

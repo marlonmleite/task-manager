@@ -5,6 +5,21 @@ import { ButtonStyled, LoadingContainer } from './styled'
 
 class Button extends PureComponent {
 
+  static defaultProps = {
+    color: 'primary',
+    type: 'button',
+    onClick: null,
+    loading: false,
+  }
+
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    onClick: PropTypes.func,
+    color: PropTypes.string,
+    type: PropTypes.string,
+    loading: PropTypes.bool,
+  }
+
   render() {
     const { children, ...props } = this.props
 
@@ -20,21 +35,6 @@ class Button extends PureComponent {
     )
   }
 
-}
-
-Button.defaultProps = {
-  color: 'primary',
-  type: 'button',
-  onClick: null,
-  loading: false,
-}
-
-Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-  color: PropTypes.string,
-  type: PropTypes.string,
-  loading: PropTypes.bool,
 }
 
 export default Button

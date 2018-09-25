@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render 1`] = `
+<styled.div
+  color="primary"
+>
+  <Button
+    color="primary"
+    loading={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <styled.div>
+      <span>
+        a
+      </span>
+      <styled.div
+        color="primary"
+      />
+    </styled.div>
+  </Button>
+</styled.div>
+`;

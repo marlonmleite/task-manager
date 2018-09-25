@@ -5,6 +5,18 @@ import { Dropdown as DropdownStyled, DropdownContent, DropdownButton, DropdownOp
 
 class Dropdown extends Component {
 
+  static defaultProps = {
+    color: 'primary',
+    right: false,
+  }
+
+  static propTypes = {
+    text: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    color: PropTypes.string,
+    right: PropTypes.bool,
+  }
+
   state = {
     open: false,
   }
@@ -48,18 +60,6 @@ class Dropdown extends Component {
     )
   }
 
-}
-
-Dropdown.defaultProps = {
-  color: 'primary',
-  right: false,
-}
-
-Dropdown.propTypes = {
-  text: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string,
-  right: PropTypes.bool,
 }
 
 export { Dropdown, DropdownOption }

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input 1`] = `
+.c0 {
+  width: 100%;
+  font-size: 15px;
+  padding: 5px 5px 5px 0;
+  height: 24px;
+  border-color: #e5e5e5;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  color: #222;
+  line-height: 24px;
+  background-color: transparent;
+  box-sizing: content-box;
+}
+
+.c0:focus {
+  outline: none;
+  border-color: #62C2FA;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+<input
+  className="c0"
+  type="text"
+  value="abc"
+/>
+`;

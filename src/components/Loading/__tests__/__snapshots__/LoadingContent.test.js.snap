@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingContent should render 1`] = `
+<styled.div>
+  <styled.div
+    color="primary"
+    size="75px"
+  />
+</styled.div>
+`;

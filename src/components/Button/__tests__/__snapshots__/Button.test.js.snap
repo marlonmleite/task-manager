@@ -3,8 +3,31 @@
 exports[`Button should render Button 1`] = `
 <styled.button
   color="primary"
+  loading={false}
   onClick={[MockFunction]}
+  type="button"
 >
-  Ok
+  <span>
+    Ok
+  </span>
+</styled.button>
+`;
+
+exports[`Button should render with loading 1`] = `
+<styled.button
+  color="primary"
+  loading={true}
+  onClick={[MockFunction]}
+  type="button"
+>
+  <span>
+    Ok
+  </span>
+  <styled.div>
+    <styled.div
+      color="secondary"
+      size="14px"
+    />
+  </styled.div>
 </styled.button>
 `;

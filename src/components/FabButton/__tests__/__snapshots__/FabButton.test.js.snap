@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FabButton 1`] = `
+<Styled(Button)
+  color="primary"
+>
+  <[object Object]
+    fill="#fff"
+  />
+</Styled(Button)>
+`;

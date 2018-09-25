@@ -6,9 +6,32 @@ exports[`Header styled should render 1`] = `
   height: 36px;
   padding: 10px;
   box-shadow: 0 0px 12px 0px #0006;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 <nav
+  className="c0"
+/>
+`;
+
+exports[`Header styled should title 1`] = `
+.c0 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: normal;
+  padding-left: 20px;
+  margin: 0 0 0 20px;
+  border-left: 1px solid #ffffff5e;
+}
+
+<h1
   className="c0"
 />
 `;
