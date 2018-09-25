@@ -4,7 +4,7 @@ const Task = AsyncImport({
   loader: () => import('containers/Task'/* webpackChunkName: 'task' */),
 })
 
-const taskRoute = [
+const route = [
   {
     path: '/tasks',
     main: Task,
@@ -12,5 +12,5 @@ const taskRoute = [
   },
 ]
 
-export default taskRoute
+export default route
 
