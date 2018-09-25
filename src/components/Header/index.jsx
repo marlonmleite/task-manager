@@ -10,7 +10,7 @@ class Header extends PureComponent {
 
     return (
       <HeaderStyled>
-        {/* <Logo /> */}
+        <Logo />
         <Title>{title}</Title>
       </HeaderStyled>
     )

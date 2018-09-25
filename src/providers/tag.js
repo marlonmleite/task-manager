@@ -1,10 +1,10 @@
 import Api from './api/mock-api'
 
-const path = '/task'
+const path = '/tag'
 
-const Task = {
+const Tag = {
   all(filters) {
-    const params = { ...filters, sortBy: 'scheduleDate', order: 'desc', limit: Task.getPageLimit() }
+    const params = { ...filters, sortBy: 'id', order: 'asc', limit: Tag.getPageLimit() }
 
     return Api.request(path, { params })
   },
@@ -21,8 +21,8 @@ const Task = {
     return Api.request(`${path}/${data.id}`, { data, method: 'PUT' })
   },
 
-  save(task) {
-    return task.id ? Task.update(task) : Task.create(task)
+  save(tag) {
+    return tag.id ? Tag.update(tag) : Tag.create(tag)
   },
 
   getPageLimit() {
@@ -30,4 +30,4 @@ const Task = {
   },
 }
 
-export default Task
+export default Tag

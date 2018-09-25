@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import exampleReducer from 'containers/Example/state/reducer'
 import task from 'containers/Task/state/reducer'
+import tag from 'containers/Tag/state/reducer'
 
 const reducers = combineReducers({
-  exampleReducer,
   task,
+  tag,
 })
 
 export default reducers

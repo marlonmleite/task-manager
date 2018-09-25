@@ -15,13 +15,13 @@ class DeleteModal extends Component {
   }
 
   render() {
-    const { item, onClose } = this.props
+    const { item, onClose, labelKey } = this.props
 
     return (
       <Modal onClose={onClose} open center>
         <ModalBody>
           <ModalContent>
-            <p>Você deseja remover <b>{get(item, 'description')}</b>?</p>
+            <p>Você deseja remover <b>{get(item, labelKey)}</b>?</p>
           </ModalContent>
           <ModalFooter>
             <Button color="secondary" onClick={this.onConfirm}>Sim</Button>
@@ -36,12 +36,14 @@ class DeleteModal extends Component {
 
 DeleteModal.defaultProps = {
   item: null,
+  labelKey: 'description',
 }
 
 DeleteModal.propTypes = {
   item: PropTypes.object,
   onClose: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,
+  labelKey: PropTypes.string,
 }
 
 export default DeleteModal

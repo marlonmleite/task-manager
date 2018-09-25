@@ -5,6 +5,18 @@ import { Grid as GridStyled, GridItem, Remove, Finish, Edit } from './styled'
 
 class Grid extends Component {
 
+  static defaultProps = {
+    onFinish: null,
+  }
+
+  static propTypes = {
+    items: PropTypes.array.isRequired,
+    render: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    onFinish: PropTypes.func,
+    onEdit: PropTypes.func.isRequired,
+  }
+
   render() {
     const { items, render, onRemove, onFinish, onEdit } = this.props
 
@@ -18,7 +30,9 @@ class Grid extends Component {
               {render(item, index)}
               <div className="grid-actions">
                 <Edit role="button" onClick={() => onEdit(item)} />
-                {!item.completed && <Finish role="button" onClick={() => onFinish(item)} />}
+                {item.completed === false && (
+                  <Finish role="button" onClick={() => onFinish(item)} />
+                )}
                 <Remove role="button" onClick={() => onRemove(item)} />
               </div>
             </GridItem>
@@ -28,14 +42,6 @@ class Grid extends Component {
     )
   }
 
-}
-
-Grid.propTypes = {
-  items: PropTypes.array.isRequired,
-  render: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
-  onFinish: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired,
 }
 
 export default Grid

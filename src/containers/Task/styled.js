@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Button from 'components/Button'
 
 export const PageTop = styled.div`
   width: 100%;
