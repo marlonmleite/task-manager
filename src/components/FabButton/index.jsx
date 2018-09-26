@@ -4,9 +4,13 @@ import FabButtonStyled from './styled'
 
 class FabButton extends Component {
 
+  static defaultProps = {
+    color: 'primary',
+  }
+
   render() {
     return (
-      <FabButtonStyled {...this.props} color="primary">
+      <FabButtonStyled {...this.props}>
         <PlusIcon fill="#fff" />
       </FabButtonStyled>
     )

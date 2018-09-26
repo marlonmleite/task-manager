@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import FormGroup from './'
-import { Input } from '../Input'
+import { InputComponent as Input } from '../Input'
 
 const stories = storiesOf('FormGroup', module)
 
 stories.add('default', () => (
-  <div>
+  <div style={{ margin: 20 }}>
     <div>
       <FormGroup name="firstName" label="First name">
         <Input id="firstName" defaultValue="" />
@@ -21,7 +21,7 @@ stories.add('default', () => (
 ))
 
 stories.add('invalid input', () => (
-  <div>
+  <div style={{ margin: 20 }}>
     <div>
       <FormGroup name="email" label="Email" error="Enter a email" invalid>
         <Input id="email" defaultValue="" />

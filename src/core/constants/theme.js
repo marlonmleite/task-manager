@@ -12,6 +12,7 @@ const theme = {
       primary: '#fff',
       secondary: '#000',
       info: '#fff',
+      danger: '#fff',
       default: '#000',
     },
   },
