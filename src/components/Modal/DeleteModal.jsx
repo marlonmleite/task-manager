@@ -7,6 +7,18 @@ import { ModalFooter, ModalBody, ModalContent } from './styled'
 
 class DeleteModal extends Component {
 
+  static defaultProps = {
+    item: null,
+    labelKey: 'description',
+  }
+
+  static propTypes = {
+    item: PropTypes.object,
+    onClose: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func.isRequired,
+    labelKey: PropTypes.string,
+  }
+
   onConfirm = () => {
     const { onConfirm, onClose, item } = this.props
 
@@ -32,18 +44,6 @@ class DeleteModal extends Component {
     )
   }
 
-}
-
-DeleteModal.defaultProps = {
-  item: null,
-  labelKey: 'description',
-}
-
-DeleteModal.propTypes = {
-  item: PropTypes.object,
-  onClose: PropTypes.func.isRequired,
-  onConfirm: PropTypes.func.isRequired,
-  labelKey: PropTypes.string,
 }
 
 export default DeleteModal

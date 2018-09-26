@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingRow should render 1`] = `
+<styled.div
+  background="rgba(255, 255, 255, 0.85)"
+>
+  <styled.div
+    color="primary"
+    size="20px"
+  />
+</styled.div>
+`;

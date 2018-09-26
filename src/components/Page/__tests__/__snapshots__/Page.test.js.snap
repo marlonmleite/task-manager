@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page should render page 1`] = `
+.c0 {
+  width: 100%;
+  padding: 1.625rem 6.25rem 3.75rem 3.75rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Page should render page content 1`] = `
+.c0 {
+  width: 100%;
+  box-shadow: 0 0 6px 0 #00000040;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Page should render page filter 1`] = `
+.c0 {
+  width: 100%;
+}
+
+<div
+  className="c0"
+/>
+`;

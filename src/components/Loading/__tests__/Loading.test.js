@@ -5,7 +5,7 @@ import theme from 'core/constants/theme'
 
 describe('Loading', () => {
   it('should render', () => {
-    const loading = shallow(<Loading theme={theme} />)
+    const loading = shallow(<Loading theme={theme} size="10px" />)
 
     expect(loading).toMatchSnapshot()
   })

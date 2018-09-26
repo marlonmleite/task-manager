@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should render 1`] = `
+<styled.nav>
+  <styled.ul>
+    <styled.li
+      active={true}
+    >
+      <Styled(Link)
+        to="/"
+      >
+        <styled.jest-stub />
+         Home
+      </Styled(Link)>
+    </styled.li>
+    <styled.li
+      active={false}
+    >
+      <Styled(Link)
+        to="/tasks"
+      >
+        <styled.jest-stub />
+         Tasks
+      </Styled(Link)>
+    </styled.li>
+    <styled.li
+      active={false}
+    >
+      <Styled(Link)
+        to="/tags"
+      >
+        <styled.jest-stub />
+         Tags
+      </Styled(Link)>
+    </styled.li>
+  </styled.ul>
+</styled.nav>
+`;

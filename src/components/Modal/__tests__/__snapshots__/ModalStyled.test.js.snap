@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal styled should render ModalBody 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #333;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Modal styled should render ModalContent 1`] = `
+.c0 {
+  padding: 35px 0 20px 0;
+  min-width: 300px;
+  min-height: 30px;
+  width: auto;
+}
+
+<div
+  className="c0"
+  size="auto"
+/>
+`;
+
+exports[`Modal styled should render ModalFooter 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 button {
+  margin: 0 5px;
+}
+
+<div
+  className="c0"
+/>
+`;

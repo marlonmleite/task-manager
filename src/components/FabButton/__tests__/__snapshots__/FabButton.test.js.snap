@@ -4,7 +4,7 @@ exports[`should render FabButton 1`] = `
 <Styled(Button)
   color="primary"
 >
-  <[object Object]
+  <jest-stub
     fill="#fff"
   />
 </Styled(Button)>

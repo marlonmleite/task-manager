@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInput should render 1`] = `
+<Fragment>
+  <styled.input
+    onFocus={[Function]}
+    type="text"
+    value=""
+  />
+</Fragment>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInputStyled should render 1`] = `
+.c0 .react-datepicker {
+  border-radius: 2px;
+  font-family: inherit;
+}
+
+<div
+  className="c0"
+/>
+`;

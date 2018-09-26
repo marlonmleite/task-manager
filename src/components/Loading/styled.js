@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled, { css, keyframes } from 'styled-components'
 
 const spin = keyframes`

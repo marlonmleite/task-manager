@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should render 1`] = `
+<styled.div
+  justify="center"
+>
+  <Styled(Button)
+    color="default"
+    loading={false}
+    onClick={[Function]}
+  >
+    Mais...
+  </Styled(Button)>
+</styled.div>
+`;

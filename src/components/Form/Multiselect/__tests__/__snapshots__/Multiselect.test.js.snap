@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multiselect should render 1`] = `
+.c0 .multiselect__control {
+  border-color: #e5e5e5;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  background-color: transparent;
+  min-height: 38px;
+}
+
+.c0 .multiselect__control--is-focused {
+  box-shadow: none;
+}
+
+.c0 .multiselect__value-container {
+  padding: 5px 5px 5px 0;
+}
+
+.c0 .multiselect__menu {
+  border-radius: 2px;
+}
+
+<StateManager
+  className="c0"
+  defaultInputValue=""
+  defaultMenuIsOpen={false}
+  defaultValue={null}
+/>
+`;

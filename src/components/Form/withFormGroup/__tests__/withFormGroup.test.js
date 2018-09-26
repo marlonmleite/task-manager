@@ -16,7 +16,7 @@ describe('withFormGroup', () => {
   it('should render input', () => {
     const form = { touched: {}, errors: {} }
     const props = { field: { name: 'fullName', value: 'hi' }, form }
-    const input = shallow(<Input {...props} />)
+    const input = shallow(<Input {...props} label="" />)
     const field = input.find(CustomInput)
 
     expect(field.prop('name')).toBe('fullName')
@@ -35,7 +35,7 @@ describe('withFormGroup', () => {
   it('should display error', () => {
     const form = { touched: { a: true }, errors: { a: 'Required' } }
     const props = { field: { name: 'a' }, form }
-    const input = shallow(<Input {...props} />)
+    const input = shallow(<Input {...props} label="" />)
     const group = input.find('FormGroup')
 
     expect(group.prop('error')).toBe('Required')
@@ -45,7 +45,7 @@ describe('withFormGroup', () => {
     const onChange = jest.fn()
     const form = { touched: {}, errors: {} }
     const props = { field: { name: 'fullName', onChange }, form }
-    const input = shallow(<Input {...props} />)
+    const input = shallow(<Input {...props} label="" />)
 
     input.find(CustomInput).simulate('change', '🚀')
 

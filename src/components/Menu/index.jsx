@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import { NavMenu, Nav, NavItem, Link, HomeIcon, TaskIcon, TagIcon } from './styled'
 
-class Menu extends PureComponent {
+export class Menu extends PureComponent {
 
   static propTypes = {
     location: PropTypes.object.isRequired,

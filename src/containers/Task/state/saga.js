@@ -4,7 +4,8 @@ import { showSuccess, showError } from 'core/utils/toast'
 import { actions, types } from './actions'
 
 const msgError = 'Ocorreu um erro ao processar sua solicitação.'
-const getPagination = (tasks, page) => {
+
+export const getPagination = (tasks, page) => {
   const hasMore = tasks.length >= Task.getPageLimit()
   const pagination = {
     page,

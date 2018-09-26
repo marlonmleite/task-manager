@@ -8,7 +8,7 @@ export const getNowISO = () => moment().toISOString()
 export const convertISOToDate = (iso) => {
   const date = iso ? moment(iso, moment.ISO_8601) : null
 
-  if (date.isValid()) {
+  if (date && date.isValid()) {
     return date
   }
 

@@ -8,13 +8,13 @@ exports[`Loading should render 1`] = `
   border-top: 2px solid #00b7ce;
   -webkit-animation: iptmSo 1s linear infinite;
   animation: iptmSo 1s linear infinite;
-  width: 75px;
-  height: 75px;
+  width: 10px;
+  height: 10px;
 }
 
 <div
   className="c0"
   color="primary"
-  size="75px"
+  size="10px"
 />
 `;
