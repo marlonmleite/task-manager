@@ -9,7 +9,7 @@ const FabButton = styled(Button)`
   position: fixed;
   right: 20px;
   bottom: 25px;
-  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+  box-shadow: 0 0 4px rgba(0,0,0,.04), 0 4px 8px rgba(0,0,0,.08);
 `
 
 export default FabButton

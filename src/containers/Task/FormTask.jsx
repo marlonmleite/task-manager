@@ -24,7 +24,6 @@ class FormTask extends Component {
       reminderUnit: 'MINUTE',
       scheduleDate: '',
       tags: [],
-      createdAt: null,
     },
     loading: null,
   }
@@ -49,6 +48,8 @@ class FormTask extends Component {
           validationSchema={crudSchema}
           onSubmit={(values, formActions) => {
             formActions.setSubmitting(false)
+
+            console.log('submit', values)
 
             saveTask(values)
           }}

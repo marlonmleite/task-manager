@@ -53,5 +53,4 @@ export const crudSchema = Yup.object().shape({
   tags: Yup.array()
     .of(Yup.object())
     .required('Campo obrigatório'),
-  createdAt: Yup.string().default(getNowISO),
 })

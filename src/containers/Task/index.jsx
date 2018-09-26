@@ -118,7 +118,7 @@ class Task extends Component {
             onEdit={this.openCrudModal}
           />
         </PageContent>
-        <FabButton color="info" onClick={() => this.openCrudModal()} />
+        <FabButton color="primary" onClick={() => this.openCrudModal()} />
       </Fragment>
     )
   }
