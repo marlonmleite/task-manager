@@ -1,7 +1,9 @@
-import example from './routes/example'
+import task from './routes/task'
+import tag from './routes/tag'
 
 const routes = {
-  example,
+  task,
+  tag,
 }
 
 export default routes

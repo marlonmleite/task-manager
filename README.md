@@ -1,5 +1,5 @@
-# <react-boilerplate \/>
-> This boilerplate consists of applying the simple React architecture for you business.
+# <task-manager \/>
+> This project is a task and tag manager.
 
   
 ### Starting
@@ -25,6 +25,7 @@ Go to: http://localhost:8080/
 - **src/providers**: Implementation of APIs that communicate with backend;
 - **src/store**: State configuration with Redux;
 - **src/core**: Utilities, constants, assets, configurations, i18n and others.
+- **src/routes**: Routes and path to management this SPA with react-router-dom.
 - **stub**: Routes of mock backend API`s.
 - **storybook**: Storybook configuration (The stories writing in components folder).
 

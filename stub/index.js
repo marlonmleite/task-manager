@@ -9,7 +9,9 @@ server.ext('onPreResponse', (response, h) => {
   return new Promise(resolve => setTimeout(() => resolve(h.continue), 500))
 })
 
-map(routes, routeModule => map(routeModule, route => server.route(route)))
+map(routes, routeModule => map(routeModule, (route) => {
+  return server.route(route)
+}))
 
 const init = async () => {
   try {
