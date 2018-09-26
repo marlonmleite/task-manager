@@ -1,4 +1,4 @@
-import { showSuccess } from '../toast'
+import { showSuccess, showError } from '../toast'
 
 describe('toast', () => {
   it('show a success msg', () => {
@@ -8,7 +8,7 @@ describe('toast', () => {
   })
 
   it('show a danger msg', () => {
-    const toastId = showSuccess('error')
+    const toastId = showError('error')
 
     expect(toastId).toBe(2)
   })
