@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import map from 'lodash/map'
 import { convertISOToDate } from 'core/utils/date'
 import Grid from 'components/Grid'
-import { Page, PageContent } from 'components/Page'
+import { Page, PageContent, PageTop, PageTitle } from 'components/Page'
 import { LoadingContent, LoadingRow } from 'components/Loading'
 import FabButton from 'components/FabButton'
 import { DeleteModal } from 'components/Modal'
@@ -14,7 +14,7 @@ import ClockIcon from 'core/assets/svg/clock.svg'
 import { actions } from './state/actions'
 import { actions as tagActions } from '../Tag/state/actions'
 import { getTasks } from './utils'
-import { PageTop, Title, GridRow, ColumnDate, ColumnDescription, ColumnSchedule } from './styled'
+import { GridRow, ColumnDate, ColumnDescription, ColumnSchedule } from './styled'
 import TaskFilter from './TaskFilter'
 import FormTask from './FormTask'
 
@@ -104,9 +104,9 @@ class Task extends Component {
     return (
       <Fragment key={title}>
         <PageTop>
-          <Title>
+          <PageTitle>
             {title}
-          </Title>
+          </PageTitle>
           {isFirst && <TaskFilter />}
         </PageTop>
         <PageContent>

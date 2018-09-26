@@ -18,3 +18,19 @@ export const PageContent = styled.div`
 export const PageFilter = styled.div`
   width: 100%;
 `
+
+export const PageTop = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+`
+
+export const PageTitle = styled.h5`
+  color: #616161;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 15px;
+  width: 100%;
+`

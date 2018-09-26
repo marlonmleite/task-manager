@@ -2,13 +2,13 @@ import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Grid from 'components/Grid'
-import { Page, PageContent } from 'components/Page'
+import { Page, PageContent, PageTop, PageTitle } from 'components/Page'
 import { LoadingContent, LoadingRow } from 'components/Loading'
 import FabButton from 'components/FabButton'
 import Pagination from 'components/Pagination'
 import { DeleteModal } from 'components/Modal'
 import { actions } from './state/actions'
-import { GridRow, ColumnId, ColumnName, PageTop, Title } from './styled'
+import { GridRow, ColumnId, ColumnName } from './styled'
 import { MODAL_DELETE, MODAL_FORM } from './utils'
 import CrudModal from './CrudModal'
 
@@ -71,9 +71,9 @@ class Tag extends Component {
     return (
       <Fragment>
         <PageTop>
-          <Title>
+          <PageTitle>
               Lista de Tags
-          </Title>
+          </PageTitle>
         </PageTop>
         <PageContent>
           <Grid
